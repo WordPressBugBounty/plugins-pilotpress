@@ -2,7 +2,7 @@
 Contributors: ONTRAPORT
 Tags: ONTRAPORT, OfficeAutoPilot, Sendpepper, Moonray, ONTRAPORT, Pilotpress, Oap, Membership Site, Customer Center, Affiliate Center, Integration
 Requires at least: 3.6
-Tested up to: 6.4
+Tested up to: 6.8
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -56,6 +56,10 @@ Content that relates to your business, and content that you can successfully sel
 If you have Pilotpress installed, you can create a new page and simply enter "[login_page]" (excluding quotes) and that page will then have a login box for users to use.
 
 == Changelog ==
+
+= 2.0.35 = 
+* Test for compatibility up to Wordpress 6.8
+
 = 2.0.34 = 
 * Update to handle deprecated wp class 
 
@@ -368,6 +372,10 @@ If you have Pilotpress installed, you can create a new page and simply enter "[l
 * Invalid login inputs on custom login pages now stay at the custom login page, forgotten password function does not cause accounts to go out of sync
 
 == Upgrade Notice ==
+
+= 2.0.35 = 
+* Test for compatibility up to Wordpress 6.8
+
 = 2.0.34 = 
 * Update to handle deprecated wp class 
 

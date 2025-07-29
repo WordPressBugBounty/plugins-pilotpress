@@ -3,7 +3,7 @@
 Plugin Name: PilotPress
 Plugin URI: https://ontraport.com/
 Description: ONTRAPORT WordPress integration plugin.
-Version: 2.0.34
+Version: 2.0.35
 Author: ONTRAPORT Inc.
 Author URI: https://ontraport.com/
 Text Domain: pilotpress
@@ -39,7 +39,7 @@ define("JS_DIR", plugin_dir_url(__FILE__) . "js/");
 
     class PilotPress {
 
-        const VERSION = "2.0.34";
+        const VERSION = "2.0.35";
         const WP_MIN = "3.6";
         const NSPACE = "_pilotpress_";
         const AUTH_SALT = "M!E%VxpKvuQHn!PTPOTohtLbnOl&)5&0mb(Uj^c#Zz!-0898yfS#7^xttNW(x1ia";
