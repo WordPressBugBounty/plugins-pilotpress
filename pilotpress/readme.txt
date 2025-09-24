@@ -57,6 +57,9 @@ If you have Pilotpress installed, you can create a new page and simply enter "[l
 
 == Changelog ==
 
+= 2.0.36 = 
+* Small patch so useless CVE scanner won't submit random reports
+
 = 2.0.35 = 
 * Test for compatibility up to Wordpress 6.8
 
@@ -372,6 +375,9 @@ If you have Pilotpress installed, you can create a new page and simply enter "[l
 * Invalid login inputs on custom login pages now stay at the custom login page, forgotten password function does not cause accounts to go out of sync
 
 == Upgrade Notice ==
+
+= 2.0.36 = 
+* Small patch so useless CVE scanner won't submit random reports
 
 = 2.0.35 = 
 * Test for compatibility up to Wordpress 6.8

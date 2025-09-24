@@ -3,11 +3,11 @@
 Plugin Name: PilotPress
 Plugin URI: https://ontraport.com/
 Description: ONTRAPORT WordPress integration plugin.
-Version: 2.0.35
+Version: 2.0.36
 Author: ONTRAPORT Inc.
 Author URI: https://ontraport.com/
 Text Domain: pilotpress
-Copyright: 2024, Ontraport
+Copyright: 2025, Ontraport
 */
 
 define("JS_DIR", plugin_dir_url(__FILE__) . "js/");
@@ -39,7 +39,7 @@ define("JS_DIR", plugin_dir_url(__FILE__) . "js/");
 
     class PilotPress {
 
-        const VERSION = "2.0.35";
+        const VERSION = "2.0.36";
         const WP_MIN = "3.6";
         const NSPACE = "_pilotpress_";
         const AUTH_SALT = "M!E%VxpKvuQHn!PTPOTohtLbnOl&)5&0mb(Uj^c#Zz!-0898yfS#7^xttNW(x1ia";
@@ -742,7 +742,7 @@ define("JS_DIR", plugin_dir_url(__FILE__) . "js/");
 
             global $post, $wp_version;
 
-            if(basename($_SERVER["SCRIPT_NAME"]) == "post.php" && $_GET["action"] == "edit" && in_array($post->ID, $this->system_pages)) {
+            if(basename($_SERVER["SCRIPT_NAME"]) == "post.php" && isset($_GET["action"]) && sanitize_text_field($_GET["action"]) == "edit" && in_array($post->ID, $this->system_pages)) {
                 echo '<div class="updated"><p>This page is used by the <b>PilotPress</b> plugin. You can edit the content but not delete the page itself.</p></div>';
             }
 
@@ -757,7 +757,7 @@ define("JS_DIR", plugin_dir_url(__FILE__) . "js/");
                 echo '<div class="error" style="padding-top: 5px; padding-bottom: 5px;">';
                 _e('PilotPress must be configured with an ' . self::$brand . ' API Key and App ID.', 'pilotpress');
 
-                if($_GET['page'] != 'pilotpress-settings') {
+                if(isset($_GET['page']) && sanitize_text_field($_GET['page']) != 'pilotpress-settings') {
                     _e(sprintf('Go to the <a href="%s" title="PilotPress Admin Page">PilotPress Admin Page</a> to finish setting up your site!', 'options-general.php?page=pilotpress-settings'), 'pilotpress');
                     echo ' ' ;
                     _e(sprintf('You need an <a href="%s" title="Visit '. self::$brand_url .'">' . self::$brand . '</a> account to use this plugin.', 'http://' . self::$brand_url));
@@ -1575,7 +1575,8 @@ define("JS_DIR", plugin_dir_url(__FILE__) . "js/");
 
             if(is_array($this->system_pages)) {
                 if(isset($_GET["post"])) {
-                    if(in_array($_GET["post"], $this->system_pages)) {
+                    $post_id = intval($_GET["post"]); // Sanitize as integer since this should be a post ID
+                    if(in_array($post_id, $this->system_pages)) {
                         if(is_array($allcaps)) {
                             foreach($allcaps as $cap => $value) {                   
                                 if(strpos($cap, "delete") !== false) {
